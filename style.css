@@ -1,0 +1,124 @@
+/* Global Styles and Modern Font */
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: #f7f7f9;
+}
+
+/* --- Navigation Bar Styling --- */
+
+#navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 60px; /* Increased padding */
+    z-index: 1000;
+    
+    /* Initial (Transparent) Styles */
+    background-color: rgba(255, 255, 255, 0);
+    color: #ffffff; 
+    transition: background-color 0.5s ease, box-shadow 0.5s ease, padding 0.5s ease;
+}
+
+/* Style for when the menu is scrolled (The 'scrolled' class is added by JS) */
+#navbar.scrolled {
+    background-color: rgba(255, 255, 255, 0.95); /* Semi-transparent white */
+    color: #004c8c; /* Deep Blue text */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    padding: 10px 60px; /* Reduced padding for a smaller bar */
+    backdrop-filter: blur(5px); /* Adds a nice frosted glass effect (modern look) */
+}
+
+.logo {
+    font-size: 1.8em;
+    font-weight: 700;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li {
+    margin-left: 25px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    font-weight: 600;
+    padding: 5px 0;
+    position: relative;
+    
+    /* Inherit color based on scrolled state */
+    color: inherit; 
+    transition: color 0.3s ease;
+}
+
+/* Advanced Hover Effect: Sliding Underline (Interactive) */
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: #009688; /* Teal color for underline */
+    transform: scaleX(0); /* Start hidden */
+    transform-origin: bottom right;
+    transition: transform 0.35s ease-out;
+}
+
+.nav-links a:hover::after {
+    transform: scaleX(1); /* Slide in from left */
+    transform-origin: bottom left;
+}
+
+/* Color adjustment on hover for the text */
+.nav-links a:hover {
+    color: #009688; /* Teal text on hover */
+}
+
+/* Ensure text color is white on the initial (dark/transparent) menu */
+#navbar:not(.scrolled) .nav-links a {
+    color: white;
+}
+#navbar:not(.scrolled) .logo {
+    color: white;
+}
+
+/* --- Content Styling --- */
+
+.content-section {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 100px 50px 0;
+}
+
+.hero-section {
+    background: linear-gradient(rgba(0, 76, 140, 0.8), rgba(0, 76, 140, 0.8)), 
+                url('https://picsum.photos/1920/1080?random=1') no-repeat center center/cover;
+    color: white;
+}
+
+.light-bg {
+    background-color: #f7f7f9;
+    color: #333;
+}
+
+.dark-bg {
+    background-color: #004c8c;
+    color: white;
+}
+
+.content-section h1 {
+    font-size: 3em;
+}
